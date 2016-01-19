@@ -63,7 +63,7 @@ public class TwoStopExpander extends BaseExpander {
                     nodes.next();
                     Node lastFlight = nodes.next();
 
-                    if (((Long) lastFlight.getProperty("arrives") + minimumConnectTime) > (Long) lastNode.getProperty("departs")) {
+                    if ((Long.parseLong(""+lastFlight.getProperty("arrives")) + minimumConnectTime) > Long.parseLong(""+lastNode.getProperty("departs"))) {
                         return Collections.emptyList();
                     }
 
@@ -83,7 +83,7 @@ public class TwoStopExpander extends BaseExpander {
                     nodes.next();
                     Node lastFlight = nodes.next();
 
-                    if (((Long) lastFlight.getProperty("arrives") + minimumConnectTime) > (Long) lastNode.getProperty("departs")) {
+                    if ((Long.parseLong(""+lastFlight.getProperty("arrives")) + minimumConnectTime) > Long.parseLong(""+lastNode.getProperty("departs"))) {
                         return Collections.emptyList();
                     } else {
                         return path.endNode().getRelationships(Direction.OUTGOING, relationshipTypes);

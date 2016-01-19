@@ -195,12 +195,12 @@ public class Service {
         // We now perform a final distance filter to make sure we don't recommend a flight from SFO to LAX via ORD.
         for (Iterator<HashMap> iterator = results.iterator(); iterator.hasNext();) {
             HashMap result = iterator.next();
-            if ((Long)result.get("distance") > 2.5 * minDistance){
+            if (((Long) result.get("distance")) > 2.5 * minDistance){
                 iterator.remove();
             }
         }
 
-        Collections.sort(results, FLIGHT_COMPARATOR);
+        //Collections.sort(results, FLIGHT_COMPARATOR);
 
         return Response.ok().entity(objectMapper.writeValueAsString(results)).build();
     }

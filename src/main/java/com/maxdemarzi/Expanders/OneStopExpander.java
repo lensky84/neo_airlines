@@ -52,7 +52,7 @@ public class OneStopExpander extends BaseExpander {
                     nodes.next();
                     Node lastFlight = nodes.next();
 
-                    if (((Long) lastFlight.getProperty("arrives") + minimumConnectTime) > (Long) lastNode.getProperty("departs")) {
+                    if ((Long.parseLong(""+lastFlight.getProperty("arrives")) + minimumConnectTime) > Long.parseLong(""+lastNode.getProperty("departs"))) {
                         return Collections.emptyList();
                     }
 

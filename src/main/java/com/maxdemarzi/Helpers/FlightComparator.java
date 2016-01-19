@@ -20,10 +20,15 @@ public class FlightComparator <T extends Comparable<T>> implements Comparator<Ha
             HashMap firstFlight1 = (HashMap)((ArrayList)flights1.get("flights")).get(0);
             HashMap firstFlight2 = (HashMap)((ArrayList)flights2.get("flights")).get(0);
 
-            c = ((Long)firstFlight1.get("departs")).compareTo((Long)(firstFlight2.get("departs")));
+            Long l1 = new Long(Long.parseLong(""+firstFlight1.get("departs")));
+            Long l2 = new Long(Long.parseLong(""+firstFlight2.get("departs")));
+            c = l1.compareTo(l2);
 
             if (c == 0) {
-                c = ((Long)flights1.get("distance")).compareTo((Long)flights2.get("distance"));
+		l1 = new Long(Long.parseLong(""+flights1.get("distance")));
+		l2 = new Long(Long.parseLong(""+flights2.get("distance")));
+		c = l1.compareTo(l2);
+                
                 if (c == 0) {
                     c = ((String)firstFlight1.get("code")).compareTo((String)(firstFlight2.get("code")));
                 }
